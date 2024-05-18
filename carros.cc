@@ -2,29 +2,29 @@
 #include <malloc.h>
 using namespace std;
 
-// g++ carros.cc -o carros.exe     
+// g++ carros.cc -o carros.exe  taller para entregar   
 
-// ve este es el del taller de EDD esta very good por si algo compadre XD.
+
 
 struct parqueadero{
 
-    float costo_carro = 5000;
+    int costo_carro = 5000;
     int posi_carro;
   
-    float costo_moto ;
+    int costo_moto ;
     int posi_moto = 2500;
 
     parqueadero *sig;
 
 };
 
-parqueadero *top,*aux,*topaux;
+parqueadero *top= NULL ,*aux= NULL,*topaux= NULL;
 
 //CARROS---------->
 
-void registrar_carro(){
+int  registrar_carro(){
 
-    aux = (parqueadero *) malloc (sizeof(parqueadero ));
+    aux = (struct parqueadero *) malloc (sizeof(struct parqueadero ));
 
     if(top == NULL){
 
@@ -44,9 +44,9 @@ void registrar_carro(){
         top = aux;
 
     }
+    return 0;
 }
-
-void mostrar_carro(){
+int  mostrar_carro(){
  
     cout<<"PARQUEADERO CARROS"<<endl<<endl;
 
@@ -56,10 +56,10 @@ void mostrar_carro(){
         cout<<" numero de carro "<<aux->posi_carro ;
         cout<<" su valor es -----> "<<aux->costo_carro<<endl;
         cout<<"------------------------------------------------------"<<endl<<endl;
-    } 
+    } return 0;
 }
 
-void eliminar_carro() {
+int  eliminar_carro() {
 
     mostrar_carro();
 
@@ -102,12 +102,12 @@ void eliminar_carro() {
 
             cout << "¡Ups, lo sentimos pero el carro no se encuentra!" << endl << endl;
         }
-    }
+    }return 0;
 }
 
 //MOTOS---------->
 
-void registrar_moto(){
+int  registrar_moto(){
 
     aux = (parqueadero *) malloc (sizeof(parqueadero ));
 
@@ -126,10 +126,10 @@ void registrar_moto(){
 
         aux->sig = top;
         top = aux;
-    }
+    }return 0;
 }
 
-void mostrar_moto(){
+int  mostrar_moto(){
 
     cout<<"PARQUEADERO MOTOS"<<endl<<endl;
 
@@ -138,10 +138,10 @@ void mostrar_moto(){
     cout<<" numero de moto "<<aux->posi_moto;
     cout<<" su valor es -----> "<<aux->costo_moto<<endl;
     cout<<"------------------------------------------------------"<<endl<<endl;
-    }
+    }return 0;
 }
 
-void eliminar_moto(){
+int  eliminar_moto(){
 
     mostrar_moto();
 
@@ -184,7 +184,7 @@ void eliminar_moto(){
 
             cout << "¡ups, lo sentimos pero la moto no esta!" << endl << endl;
         }
-    }
+    }return 0;
 }
 
 int main() {
@@ -235,6 +235,5 @@ int main() {
             
     } while (op != 6);
 
-    return 0;
-} 
-
+    return 0;
+}
